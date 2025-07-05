@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxy Gamming Studio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global.css" /> <!-- 如果有共用樣式 -->
+</head>
+
+<body>
+
+  <!-- ✅ 導入導覽列 -->
+  <div id="navbar"></div>
+
+  <!-- Hero 區 -->
+  <section class="hero">
+    <h1>Galaxy Gamming Studio</h1>
+    <p>探索星系，打造屬於你的遊戲宇宙</p>
+    <a href="#about">了解我們</a>
+  </section>
+
+  <!-- 關於我們 -->
+  <section id="about" class="intro">
+    <h2>關於星系遊戲工作室</h2>
+    <p>
+      我們是一群熱愛遊戲的創作者，專注於打造深度宇宙主題的遊戲作品，融合創意、技術與沉浸感。
+    </p>
+  </section>
+
+  <!-- 精選遊戲展示 -->
+  <section>
+    <h2>精選遊戲作品</h2>
+    <div class="games">
+      <div class="game-card">
+        <h3>終焉之星 12025</h3>
+        <p>大型科幻生存 RPG，支援多人伺服器。</p>
+      </div>
+      <div class="game-card">
+        <h3>SOV 空域模擬</h3>
+        <p>多世界分流，結合經濟、國家與冒險系統。</p>
+      </div>
+      <div class="game-card">
+        <h3>星環起源：建設版</h3>
+        <p>自由建造與模組整合型遊戲，支援 MOD。</p>
+      </div>
+    </div>
+    <div class="join-banner">
+      想加入我們？<a href="/careers.html">查看職缺</a> 或 <a href="/contact.html">聯絡我們</a>
+    </div>
+  </section>
+
+  <!-- ✅ 導入頁尾 -->
+  <div id="footer"></div>
+
+  <!-- 導入 navbar 與 footer 的 JS -->
+  <script>
+    // 導入 navbar.html
+    fetch('/components/nav.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar').innerHTML = html);
+
+    // 導入 footer.html
+    fetch('/components/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+
+  <!-- 內嵌首頁樣式 -->
+  <style>
+    body {
+      margin: 0;
+      background: #0d1b2a;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to bottom, #0d1b2a, #1a1a2e);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #00ffff;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #66ffff;
+      margin-bottom: 30px;
+    }
+
+    .hero a {
+      padding: 12px 24px;
+      background: #00ffff;
+      color: #0d1b2a;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      box-shadow: 0 0 10px #00ffff;
+      transition: 0.3s;
+    }
+
+    .hero a:hover {
+      background: #7f5af0;
+      color: white;
+      box-shadow: 0 0 14px #7f5af0;
+    }
+
+    .intro {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .intro h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 16px;
+      color: #99f6ff;
+      line-height: 1.8;
+    }
+
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .game-card {
+      background: #111;
+      border: 1px solid #00ffff33;
+      border-radius: 8px;
+      padding: 20px;
+      width: 260px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .join-banner {
+      margin-top: 80px;
+      font-size: 18px;
+    }
+
+    .join-banner a {
+      color: #7f5af0;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .games {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</body>
+</html>
