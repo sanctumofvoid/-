@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>團隊成員 | Galaxy Gamming Studio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <style>
+    /* Sticky Bottom 結構 */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #071d2b;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .page-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    /* 頁面樣式 */
+    .team-header {
+      padding: 100px 20px 60px;
+      text-align: center;
+    }
+
+    .team-header h1 {
+      font-size: 36px;
+      background: linear-gradient(to right, #00ffff, #7f5af0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .team-header p {
+      font-size: 16px;
+      color: #66ffff;
+      max-width: 600px;
+      margin: 10px auto 0;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .member-card {
+      background: #111;
+      border: 1px solid #00ffff33;
+      border-radius: 12px;
+      width: 280px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 0 10px #00ffff22;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1s ease both;
+    }
+
+    .member-card:hover {
+      box-shadow: 0 0 20px #00ffff99;
+      transform: translateY(-4px);
+    }
+
+    .avatar {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid #00ffff;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .glow-ring {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 2px dashed #00ffff66;
+      animation: spin 8s linear infinite;
+    }
+
+    h3 {
+      margin-top: 15px;
+      font-size: 20px;
+    }
+
+    .role {
+      font-size: 14px;
+      color: #7f5af0;
+      margin-bottom: 12px;
+    }
+
+    .member-card p {
+      font-size: 14px;
+      color: #b8faff;
+      line-height: 1.6;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      margin: 0 6px;
+      font-size: 18px;
+      color: #00ffff;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ffffff;
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <!-- ✅ 導入 nav -->
+    <div id="nav"></div>
+
+    <!-- ✅ 主內容區 -->
+    <main class="content">
+      <section class="team-header">
+        <h1>我們的星系團隊</h1>
+        <p>來自宇宙各地的創作者，持續推動著 Galaxy 的每一道光。</p>
+      </section>
+
+      <section class="team-grid">
+        <div class="member-card fade-in">
+          <div class="avatar">
+            <img src="/images/team_h.png" alt="H">
+            <span class="glow-ring"></span>
+          </div>
+          <h3>H</h3>
+          <p class="role">伺服器架構｜插件統整</p>
+          <p>打造並維護 Galaxy 的技術基底，是背後的穩定引擎。</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="member-card fade-in">
+          <div class="avatar">
+            <img src="/images/team_ying.png" alt="穎">
+            <span class="glow-ring"></span>
+          </div>
+          <h3>穎</h3>
+          <p class="role">視覺設計｜材質包</p>
+          <p>統籌 UI 與像素美術，賦予星系視覺風格與特色風貌。</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="member-card fade-in">
+          <div class="avatar">
+            <img src="/images/team_zhong.png" alt="仲">
+            <span class="glow-ring"></span>
+          </div>
+          <h3>仲</h3>
+          <p class="role">企劃統籌｜伺服器管理</p>
+          <p>負責玩法設計與任務系統，制定 Galaxy 世界觀的發展路線。</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ✅ 導入 footer -->
+    <div id="footer"></div>
+  </div>
+
+  <!-- ✅ JS 導入模組 -->
+  <script>
+    fetch('/components/nav.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('nav').innerHTML = html);
+
+    fetch('/components/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+</body>
+</html>

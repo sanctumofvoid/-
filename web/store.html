@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商品商城 | Galaxy Gamming Studio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #071d2b;
+      color: #00ffff;
+    }
+
+    .page-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px 20px;
+    }
+
+    .store-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .store-header h1 {
+      font-size: 36px;
+      background: linear-gradient(to right, #00ffff, #7f5af0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .store-header p {
+      font-size: 16px;
+      color: #66ffff;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0 40px;
+    }
+
+    .category-buttons button {
+      background: transparent;
+      border: 1px solid #00ffff;
+      color: #00ffff;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .category-buttons button:hover {
+      background-color: #00ffff22;
+      color: #ffffff;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-card {
+      background: #111;
+      border: 1px solid #00ffff33;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px #00ffff22;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #00ffff88;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #7f5af0;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #b8faff;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 16px;
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .buy-btn {
+      background: #00ffff;
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: #7f5af0;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-container">
+    <!-- ✅ 導入 nav -->
+    <div id="nav"></div>
+
+    <main class="content">
+      <section class="store-header">
+        <h1>星際商城 Galaxy Store</h1>
+        <p>購買虛擬物品與實體周邊，支援 Galaxy 星系的每一位玩家！</p>
+      </section>
+
+      <div class="category-buttons">
+        <button>虛擬商品</button>
+        <button>周邊商品</button>
+      </div>
+
+      <section class="product-grid">
+        <div class="product-card">
+          <img src="/images/item_sovcoins.png" alt="SOV 幣包">
+          <h3>SOV 幣 500</h3>
+          <p>可用於伺服器內購買裝備、角色裝飾或傳送券。</p>
+          <div class="price">NT$100</div>
+          <button class="buy-btn">加入購物車</button>
+        </div>
+
+        <div class="product-card">
+          <img src="/images/item_starbadge.png" alt="星光徽章">
+          <h3>星光徽章</h3>
+          <p>Galaxy 限量設計徽章，附背膠，收藏必備。</p>
+          <div class="price">NT$150</div>
+          <button class="buy-btn">加入購物車</button>
+        </div>
+
+        <div class="product-card">
+          <img src="/images/item_gamepass.png" alt="遊戲通行證">
+          <h3>小遊戲月通行證</h3>
+          <p>解鎖全部遊戲項目，並獲得每月專屬頭像光環。</p>
+          <div class="price">NT$300</div>
+          <button class="buy-btn">加入購物車</button>
+        </div>
+
+        <!-- 更多商品卡可直接複製 -->
+      </section>
+    </main>
+
+    <!-- ✅ 導入 footer -->
+    <div id="footer"></div>
+  </div>
+
+  <!-- ✅ JS 導入模組 -->
+  <script>
+    fetch('/components/nav.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('nav').innerHTML = html);
+
+    fetch('/components/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+</body>
+</html>

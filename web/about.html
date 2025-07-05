@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>關於我們 | Galaxy Gamming Studio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+
+<body>
+  <!-- 導入 navbar -->
+  <div id="navbar"></div>
+
+  <!-- 主體內容 -->
+  <section class="about-page">
+    <h1 class="title">關於 Galaxy Gamming Studio</h1>
+    <p class="subtitle">We are not just building games — we are building galaxies.</p>
+
+    <div class="about-section fade-in">
+      <div class="about-card">
+        <h2><i class="fa-solid fa-star"></i> 工作室起源</h2>
+        <p>
+          我們於 2025 年正式成立，從一個 Minecraft 插件伺服器起步，發展至今已有多款世界觀獨立的大型作品。
+          Galaxy Gamming Studio 的誕生來自一個信念：**宇宙不應該只是背景，而是舞台**。
+        </p>
+      </div>
+    </div>
+
+    <div class="about-section fade-in reverse">
+      <div class="about-card">
+        <h2><i class="fa-solid fa-rocket"></i> 創作理念</h2>
+        <p>
+          我們深信遊戲是一種表達世界的方式，而不只是娛樂。每一款作品皆根據星系宇宙觀發展，結合自由建設、文明演化與玩家自治等核心元素。
+        </p>
+      </div>
+    </div>
+
+    <div class="about-section fade-in">
+      <div class="about-card">
+        <h2><i class="fa-solid fa-cube"></i> 品牌特色</h2>
+        <ul>
+          <li>🪐 多伺服器宇宙連線架構</li>
+          <li>⚙️ 模組化核心插件系統</li>
+          <li>🏛 法治式社群管理與國家系統</li>
+          <li>📜 每款作品皆有歷史與時間線</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-section fade-in reverse">
+      <div class="about-card highlight">
+        <h2><i class="fa-solid fa-quote-left"></i> 我們的信念</h2>
+        <p class="quote">
+          “Explore the stars. Build your worlds.”<br />
+          —— Galaxy Gamming Studio
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 導入 footer -->
+  <div id="footer"></div>
+
+  <!-- 模組導入 -->
+  <script>
+    fetch('/components/nav.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar').innerHTML = html);
+
+    fetch('/components/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+
+  <!-- 內頁樣式 -->
+  <style>
+    body {
+      margin: 0;
+      background: #0d1b2a;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .about-page {
+      padding: 100px 20px 60px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #66ffff;
+      font-size: 16px;
+      margin-bottom: 60px;
+    }
+
+    .about-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .about-section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .about-card {
+      background: #111;
+      border: 1px solid #00ffff33;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 12px #00ffff22;
+    }
+
+    .about-card h2 {
+      color: #7f5af0;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .about-card p, .about-card ul {
+      font-size: 15px;
+      color: #b8faff;
+      line-height: 1.8;
+    }
+
+    .about-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .quote {
+      font-size: 18px;
+      font-style: italic;
+      color: #ffffff;
+      text-shadow: 0 0 6px #00ffff;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #111, #1a1a2e);
+      border-left: 4px solid #7f5af0;
+    }
+
+    /* 動畫 */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-section, .about-section.reverse {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</body>
+</html>
