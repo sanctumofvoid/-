@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOV 星域伺服器 | 首頁</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @font-face {
+      font-family: 'Minecraftia';
+      src: url('/fonts/Minecraftia.woff2') format('woff2');
+    }
+
+    html, body {
+      margin: 0; padding: 0;
+      height: 100%;
+      background-color: #1e1e1e;
+      font-family: 'Minecraftia', sans-serif;
+      color: #fff;
+    }
+
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .content { flex: 1; }
+
+    /* === 動畫 === */
+    .fade-up { animation: fadeUp 0.8s ease-in; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* === NAV === */
+    nav {
+      background: #3cbb3c;
+      padding: 16px 20px;
+      box-shadow: 0 2px 6px #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+    nav a:hover { color: #ffd700; }
+
+    /* === HERO === */
+    .hero {
+      background: url('/images/sov_hero.jpg') center center/cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      background: url('/images/portal.gif') center center/cover;
+      position: absolute;
+      top:0;left:0;right:0;bottom:0;
+      opacity: 0.2; z-index: 0;
+    }
+    .hero h1, .hero .cta-buttons { z-index: 1; position: relative; }
+    .hero h1 {
+      font-size: 32px;
+      text-shadow: 2px 2px #000;
+    }
+    .cta-buttons a {
+      background: #ffd700;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 6px;
+      margin: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cta-buttons a:hover {
+      background: #ffaa00;
+      color: #fff;
+    }
+
+    /* === 輪播 === */
+    .carousel {
+      position: relative;
+      max-width: 1000px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .carousel img { width: 100%; display: none; }
+    .carousel img.active { display: block; }
+    .carousel-controls {
+      position: absolute; top: 50%; left: 0; right: 0;
+      display: flex; justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-controls span {
+      background: #0008; color: #fff; padding: 10px;
+      font-size: 20px; cursor: pointer;
+    }
+    .slide-caption {
+      position: absolute;
+      bottom: 10px; left: 10px;
+      background: #000a;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    /* === 世界卡片 === */
+    .worlds {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .world-card {
+      background: url('/images/ui_frame.png') center/cover;
+      padding: 10px;
+      border: 2px solid #3cbb3c;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .world-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ffd700;
+    }
+    .world-card img {
+      width: 100%; border-radius: 6px; margin-bottom: 8px;
+    }
+
+    /* === 活動公告區 === */
+    .news {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #333;
+      border-left: 6px solid #ffd700;
+    }
+    .news h2 { color: #ffd700; font-size: 18px; margin-bottom: 10px; }
+    .news p { font-size: 14px; }
+
+    /* === 建築展示區 === */
+    .builds {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .build-card {
+      position: relative;
+    }
+    .build-card img {
+      width: 100%; border-radius: 8px;
+    }
+    .build-card .desc {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: #000a;
+      padding: 10px;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+      border-radius: 0 0 8px 8px;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: #704214;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+    }
+    .social-icons a {
+      color: #fff; margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <nav>
+      <a href="/sov/index.html">🟩 SOV 星域伺服器</a>
+      <div>
+        <a href="/web/index.html">星系</a>
+        <a href="/sov/index.html">首頁</a>
+        <a href="/sov/about.html">關於</a>
+        <a href="/sov/join.html">加入</a>
+        <a href="/sov/contact.html">聯絡</a>
+      </div>
+    </nav>
+
+    <main class="content">
+      <section class="hero fade-up">
+        <h1>跨越終焉與虛空的旅程，由此展開</h1>
+        <div class="cta-buttons">
+          <a href="/sov/join.html">立即加入</a>
+          <a href="/sov/about.html">探索世界</a>
+        </div>
+      </section>
+
+      <section class="carousel fade-up">
+        <img src="/images/sov_slide1.jpg" class="active" alt="slide1">
+        <img src="/images/sov_slide2.jpg" alt="slide2">
+        <img src="/images/sov_slide3.jpg" alt="slide3">
+        <div class="slide-caption">終焉之星的重生計畫</div>
+        <div class="carousel-controls">
+          <span onclick="prevSlide()">❮</span>
+          <span onclick="nextSlide()">❯</span>
+        </div>
+      </section>
+
+      <section class="worlds fade-up">
+        <div class="world-card" onclick="location.href='/sov/about.html#ely'"><img src="/images/ely.jpg"><span>終焉之星</span></div>
+        <div class="world-card" onclick="location.href='/sov/about.html#sky'"><img src="/images/sky.jpg"><span>空域幻想</span></div>
+      </section>
+
+      <section class="news fade-up">
+        <h2>📣 最新公告</h2>
+        <p>✨ 2025/07/15：SOV 主世界 2.0 即將開放，全新地形與經濟系統！</p>
+        <p>🎉 伺服器慶典將於 7/20 舉辦，限量頭像與 SOV 幣掉落活動同步進行！</p>
+      </section>
+
+      <section class="builds fade-up">
+        <div class="build-card">
+          <img src="/images/build1.jpg">
+          <div class="desc">天空城遺跡群</div>
+        </div>
+        <div class="build-card">
+          <img src="/images/build2.jpg">
+          <div class="desc">深海研究設施</div>
+        </div>
+        <div class="build-card">
+          <img src="/images/build3.jpg">
+          <div class="desc">主城大廳正門</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 SOV 星域伺服器｜由 Galaxy Gamming Studio 支援</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-discord"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll(".carousel img");
+    const caption = document.querySelector(".slide-caption");
+    const captions = ["終焉之星的重生計畫", "空域的碎片重組中", "勇者競技場預熱中"];
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.toggle("active", i === index);
+      });
+      caption.textContent = captions[index];
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 6000);
+  </script>
+</body>
+</html>

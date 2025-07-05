@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOV 星域伺服器｜關於我們</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @font-face {
+      font-family: 'Minecraftia';
+      src: url('/fonts/Minecraftia.woff2') format('woff2');
+    }
+    body {
+      margin: 0;
+      font-family: 'Minecraftia', sans-serif;
+      background: #1e1e1e;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #111;
+      padding: 15px 20px;
+      border-bottom: 2px solid #3cbbff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 18px;
+      color: #3cbbff;
+      margin: 0;
+    }
+    nav a {
+      color: #3cbbff;
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      flex: 1;
+    }
+    h1, h2, p {
+      text-align: center;
+      color: #3cbb3c;
+    }
+    .server-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .server-card {
+      background: #2f2f2f;
+      padding: 20px;
+      border: 2px solid #3cbb3c;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .server-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #ffd700;
+    }
+    .server-card img {
+      width: 100%;
+      max-height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .section {
+      margin-top: 60px;
+      padding: 20px;
+      background: #2e2e2e;
+      border-left: 6px solid #3cbb3c;
+    }
+    .section h2 {
+      color: #ffd700;
+    }
+    .section p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e0e0e0;
+    }
+    footer {
+      background: #111;
+      color: #3cbbff;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 14px;
+      border-top: 2px solid #3cbbff;
+    }
+    footer a {
+      color: #3cbbff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .social-icons i {
+      margin: 0 8px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fa-solid fa-cube"></i> SOV 星域伺服器</h1>
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="about.html">關於</a>
+      <a href="join.html">加入</a>
+      <a href="contact.html">聯絡</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="server-grid">
+      <div class="server-card" onclick="location.href='about_tcs.html'">
+        <img src="/images/tcs.jpg" alt="空域之城">
+        <strong>🏰 空域之城 TCS</strong>
+      </div>
+      <div class="server-card" onclick="location.href='about_loc.html'">
+        <img src="/images/loc.jpg" alt="雲國之境">
+        <strong>☁️ 雲國之境 LOC</strong>
+      </div>
+      <div class="server-card" onclick="location.href='about_wop.html'">
+        <img src="/images/wop.jpg" alt="淨土荒野">
+        <strong>🌿 淨土荒野 WOP</strong>
+      </div>
+      <div class="server-card" onclick="location.href='about_tva.html'">
+        <img src="/images/tva.jpg" alt="虛空遊境">
+        <strong>🎮 虛空遊境 TVA</strong>
+      </div>
+      <div class="server-card" onclick="location.href='about_vda.html'">
+        <img src="/images/vda.jpg" alt="虛空競技">
+        <strong>⚔️ 虛空競技 VDA</strong>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🌌 關於 SOV 星域伺服器</h2>
+      <p>
+        SOV 是一個多宇宙 Minecraft 伺服器群組，由 Galaxy Gamming Studio 建構與營運。
+        致力打造一個能容納建築、美術、經濟、競技、探索等多種玩法的整合型生態系統。
+      </p>
+      <p>
+        每個伺服器都有專屬世界觀與任務設計，涵蓋原味生存、空島挑戰、PVP 競技場、街機式冒險等不同面貌，讓每位玩家都能找到屬於自己的遊玩方式。
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>👥 管理團隊介紹</h2>
+      <p>
+        本團隊由數位資深 Minecraft 伺服器經營者與創作者組成，包括：
+        <br>🛠 H：技術管理、插件整合、伺服器優化
+        <br>📜 仲：企劃設計、任務撰寫、法務制度制定
+        <br>🎨 穎：美術總監、材質與建築風格規劃
+      </p>
+      <p>
+        我們將持續更新伺服器內容與活動，提升整體遊戲體驗，誠摯歡迎所有玩家加入我們的星域旅程！
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <a href="faq.html">常見問題</a> | 
+      <a href="policy.html">政策條款</a> | 
+      <a href="/sov">SOV伺服器首頁</a>
+    </div>
+    <div class="social-icons" style="margin-top:10px">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-threads"></i></a>
+      <a href="#"><i class="fab fa-discord"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
