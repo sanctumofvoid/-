@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>常見問題｜Galaxy Gamming Studio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f0f1a, #1b1f27);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 100px 20px 40px;
+      flex: 1;
+    }
+    h1 {
+      text-align: center;
+      color: #00d1ff;
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+    .faq {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid #2e3744;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 15px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .faq:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .faq-question {
+      font-size: 18px;
+      font-weight: bold;
+      color: #00d1ff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-question i {
+      transition: transform 0.3s ease;
+    }
+    .faq.open .faq-question i {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      display: none;
+      font-size: 15px;
+      color: #ddd;
+      line-height: 1.6;
+      margin-top: 12px;
+      padding-left: 5px;
+    }
+    .faq.open .faq-answer {
+      display: block;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("/components/nav.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("nav").innerHTML = data;
+        });
+
+      fetch("/components/footer.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("footer").innerHTML = data;
+        });
+
+      document.addEventListener("click", (e) => {
+        if (e.target.matches(".hamburger")) {
+          const navMenu = document.querySelector(".nav-links");
+          if (navMenu) navMenu.classList.toggle("active");
+        }
+
+        if (e.target.closest(".faq-question")) {
+          const faq = e.target.closest(".faq");
+          faq.classList.toggle("open");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="nav"></div>
+  <div class="container">
+    <h1>常見問題</h1>
+
+    <div class="faq">
+      <div class="faq-question"><span><i class="fas fa-circle-question"></i> 我需要有 Minecraft 經驗才能加入嗎？</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">基本認識與操作經驗會有幫助，特別是企劃與建築類別，但我們也歡迎初學者嘗試並學習。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question"><span><i class="fas fa-circle-question"></i> 工作是實體還是遠端？</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">目前所有職位皆為遠端協作，透過 Discord 與其他工具進行溝通與任務追蹤。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question"><span><i class="fas fa-circle-question"></i> 是否有薪資？</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">初期為志工型態，專案達標後將逐步轉向獎金／分潤模式。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question"><span><i class="fas fa-circle-question"></i> 什麼時候會收到應徵回覆？</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">我們通常會在 3-7 天內透過 Discord 聯絡您，請保持聯絡方式可用。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question"><span><i class="fas fa-circle-question"></i> 我可以同時應徵多個職位嗎？</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">可以，請在申請表中清楚說明各職位的動機與能力。</div>
+    </div>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

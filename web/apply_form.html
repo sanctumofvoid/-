@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>申請表單｜Galaxy Gamming Studio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f0f1a, #1b1f27);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 40px 20px;
+      flex: 1;
+    }
+    h1 {
+      text-align: center;
+      color: #00d1ff;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #2e3744;
+      color: #fff;
+      font-size: 14px;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: 2px solid #00d1ff;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .checkbox-group input[type="checkbox"] {
+      margin-top: 3px;
+    }
+    button {
+      padding: 12px;
+      background: #00d1ff;
+      color: #000;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+    }
+    button:hover {
+      background: #00a6cc;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("/components/nav.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("nav").innerHTML = data;
+        });
+
+      fetch("/components/footer.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("footer").innerHTML = data;
+        });
+
+      document.addEventListener("click", (e) => {
+        if (e.target.matches(".hamburger")) {
+          const navMenu = document.querySelector(".nav-links");
+          if (navMenu) navMenu.classList.toggle("active");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="nav"></div>
+  <div class="container">
+    <h1>申請加入我們的團隊</h1>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="position">應徵職位</label>
+        <select id="position" name="position">
+          <option value="企劃">遊戲企劃</option>
+          <option value="插件">插件技術人員</option>
+          <option value="美術">美術／建築師</option>
+          <option value="社群">社群經營</option>
+          <option value="文件">文件撰寫與審核</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="name">姓名</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="age">年齡</label>
+        <input type="number" id="age" name="age" min="10" max="100" required />
+      </div>
+      <div class="form-group">
+        <label for="discord">Discord ID</label>
+        <input type="text" id="discord" name="discord" required />
+      </div>
+      <div class="form-group">
+        <label for="skills">擅長技能描述</label>
+        <textarea id="skills" name="skills" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="portfolio">作品／經歷（可填連結）</label>
+        <input type="url" id="portfolio" name="portfolio" />
+      </div>
+      <div class="form-group">
+        <label for="time">可投入時間（每週）</label>
+        <input type="text" id="time" name="time" />
+      </div>
+      <div class="form-group">
+        <label for="notes">其他補充說明</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="agree" name="agree" required />
+        <label for="agree">我同意資料僅用於 Galaxy Gamming Studio 的招募目的</label>
+      </div>
+      <button type="submit">送出申請</button>
+    </form>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>
